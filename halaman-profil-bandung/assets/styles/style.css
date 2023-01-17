@@ -21,10 +21,14 @@ nav {
   top: 0;
 }
 
+nav ul {
+  padding-inline: 4rem;
+  display: flex;
+  gap: 2rem;
+}
+
 nav li {
-  display: inline;
   list-style-type: none;
-  margin-right: 20px;
 }
 
 nav a {
@@ -41,13 +45,13 @@ nav a:hover {
 
 main {
   padding: 20px;
-  overflow: auto;
+
+  display: flex;
+  gap: 1.5rem;
 }
 
 aside {
-  float: right;
-  padding-left: 20px;
-  width: 25%;
+  flex: 1;
 }
 
 footer {
@@ -65,8 +69,11 @@ h3 {
 }
 
 #content {
-  float: left;
-  width: 75%;
+  flex: 5;
+
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem 2rem;
 }
 
 .jumbotron {
@@ -97,14 +104,24 @@ h3 {
   box-shadow: 0 2px 8px 2px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   padding: 20px;
-  margin-top: 20px;
 }
 
-@media screen and (max-width: 1000px) {
-  #content,
-  aside {
-    width: 100%;
-    padding: 0;
+@media screen and (max-width: 1200px) {
+  main {
+    flex-flow: column nowrap;
+  }
+
+  main aside {
+    align-self: center;
   }
 }
 
+@media screen and (max-width: 768px) {
+  nav ul {
+    justify-content: center;
+  }
+
+  main aside {
+    align-self: stretch;
+  }
+}
